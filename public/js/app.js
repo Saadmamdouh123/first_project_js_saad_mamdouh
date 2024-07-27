@@ -119,6 +119,21 @@ accounts.push(account);
 console.log(accounts);
 
 }
+const logIn = () => {
+  let email = prompt("enter your email");
+  let exictemail = accounts.find((element) => element.email == email);
+  if (exictemail) {
+    let password = prompt("enter your password ");
+    if (accounts.find((element) => element.password == password)) {
+      alert("login successfully");
+
+    } else {
+      alert("password ghalat");
+    }
+  } else {
+    alert("email ghalat");
+  }
+};
 function checksp(password) {
   const charsp = ["@", "#", "-", "+", "*", "/"]
   include = false;
@@ -131,50 +146,6 @@ function checksp(password) {
   }
 
 
-
-//   if (password === confirmPassword && confirmPassword.length > 5) {
-//     console.log("Account created successfully!");
-//   } else {
-//     console.log("Try again we accept at least 5 in password");
-//     return
-//   }
-
-//   if (password.includes("@", "#", "-", "+", "*", "/")) {
-//     console.log("password accepted");
-//   } else {
-//     console.log(
-//       "must contain at least one special character from: @, #,-,+,*, / "
-//     );
-//   }
-// }
-// function signIn(email, password) {
-//   const email1 = prompt("Enter you email ?");
-//   const password1 = prompt("enter you password ?");
-//   if (email1 === email) {
-//     console.log("everything is right");
-//   } else if (password === password1) {
-//     console.log("password right");
-//   } else {
-//     console.log("rak ghlatti");
-//   }
-// }
-
-// function changePassword(fullname) {
-//   let fullname1 = prompt("Enter your full name:");
-//   let oldPassword = prompt("Enter your old password:");
-//   let newPassword = prompt("Enter your new password:");
-//   let confirmPassword = prompt("Confirm your new password:");
-//   if (fullname1==fullname) {
-//     if (oldPassword==password) {
-//       if (newPassword==confirmPassword) {
-//       console.log("your password has been created succesfully");
-//       }
-//     }
-//   } else{
-//      console.log("your new full-name not match with your current full-name");
-//   }
-// }
-
 function main() {
   let choice = prompt(
     "Choose between those: 1-Sign up, 2-Sign in, 3-Change Password?"
@@ -183,7 +154,7 @@ function main() {
   if (choice == "1") {
     signUp();
   } else if (choice == "2") {
-    signIn();
+    logIn();
   } else if (choice == "3") {
     changePassword();
   } else {
