@@ -66,16 +66,71 @@ while (true) {
    
     break
   }
-
+  
+  
   
 }
-  
+while (true) {
+  age=prompt("enter age")
+  if (age) {
+      if (age.length<3) {
+          alert("rah nadi")
+        
+      }
+      if (age.includes(" ")) {
+          alert("rah fih espace")
+          continue
+      }
+      if (isNaN(age)) {
+          alert("khashum ikuno ar9am")
+          continue
+      }
+  }
+  break
+}
+while (true) {
+  let password=prompt("enter password ")
+  if (password) {
 
+          if (password.trim() !== password) {
+              alert("Email should not have spaces at the beginning or end");
+             continue
+            }
+          if (password.includes(" ")) {
+              alert("rah fih espace waset");
+              continue
+          }
+          if (!checksp(password)) {
+              alert("ra khas ikun fih chi caracter mn hadu")
+              continue
+          }
+          if (password.length<7) {
+              alert("rah 9al mn 7")
+              continue
+          }
+  }
+  break
+}
+
+
+  
 let account = new Account(fullname, email, age, password);
 accounts.push(account);
 console.log(accounts);
 
 }
+function checksp(password) {
+  const charsp = ["@", "#", "-", "+", "*", "/"]
+  include = false;
+  charsp.forEach((ch) => {
+      if (password.includes(ch)) {
+          include = true;
+      }
+      })
+      return include;
+  }
+
+
 
 //   if (password === confirmPassword && confirmPassword.length > 5) {
 //     console.log("Account created successfully!");
